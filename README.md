@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GLAB-S09 — Introducción a Next.js
 
-## Getting Started
+Laboratorio N° 09 del curso **Desarrollo de Aplicaciones Web Avanzado** — TECSUP 2025-1.
 
-First, run the development server:
+## Descripción
+
+Aplicación web construida con Next.js que demuestra las diferencias entre Client-Side Rendering (CSR) y Server-Side Rendering (SSR) a través de tres ejercicios prácticos.
+
+## Ejercicios
+
+### 1. PokeApp — CSR vs SSR
+Dos páginas visualmente idénticas que consumen la [PokeAPI](https://pokeapi.co/) con estrategias de renderizado diferentes.
+
+| Ruta | Estrategia |
+|------|-----------|
+| `/pokemon-csr` | Client-Side Rendering |
+| `/pokemon-ssr` | Server-Side Rendering |
+
+### 2. Dashboard del Clima
+Dashboard híbrido que combina SSR y CSR en una misma página usando la [Open-Meteo API](https://open-meteo.com/).
+
+- Lima, Perú → SSR (datos obtenidos en el servidor)
+- Mundo → CSR (selector interactivo de ciudades)
+
+| Ruta | Descripción |
+|------|------------|
+| `/weather` | Dashboard híbrido SSR + CSR |
+
+### 3. Galería de Películas — Lumière Cinema
+Aplicación integradora usando la [OMDb API](https://www.omdbapi.com/) con diseño tipo cine premium.
+
+| Ruta | Descripción |
+|------|------------|
+| `/movies` | Galería completa SSR + CSR |
+
+Funcionalidades:
+- Lista de películas populares renderizada en el servidor (SSR)
+- Buscador en tiempo real sin recargar la página (CSR)
+- Modal con información completa de cada película/serie
+
+## Tecnologías
+
+- [Next.js](https://nextjs.org/) — Framework principal con App Router
+- [TypeScript](https://www.typescriptlang.org/) — Tipado estático
+- [Tailwind CSS](https://tailwindcss.com/) — Estilos
+- [Axios](https://axios-http.com/) — Peticiones HTTP
+- [OMDb API](https://www.omdbapi.com/) — Datos de películas y series
+- [PokeAPI](https://pokeapi.co/) — Datos de Pokémon
+- [Open-Meteo API](https://open-meteo.com/) — Datos del clima
+
+## Instalación
 
 ```bash
+# Clonar el repositorio
+git clone <url-del-repositorio>
+cd my-first-project
+
+# Instalar dependencias
+npm install
+
+# Iniciar en desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir [http://localhost:3000](http://localhost:3000) en el navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estructura del proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+├── pokemon-csr/
+│   └── page.tsx          # Pokémon con CSR
+├── pokemon-ssr/
+│   └── page.tsx          # Pokémon con SSR
+├── weather/
+│   ├── page.tsx          # Dashboard del clima (SSR + CSR)
+│   └── ClientWeatherWidget.tsx
+└── movies/
+    ├── page.tsx          # Galería de películas (SSR + CSR)
+    └── SearchClient.tsx
+```
 
-## Learn More
+## Autor
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Juan Aguirre — TECSUP 2025
